@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import H1 from "../components/atoms/H1.astro";
+import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = await getCollection("blog");
+type Props = {};
+
+const {} = Astro.props;
+---
+
+<BaseLayout>
+  <div class="flex-1">
+    <H1 title="Blog" />
+    <ul class="mt-10">
+      {
+        allPosts.map((post: any) => (
+          <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

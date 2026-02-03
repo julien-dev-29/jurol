@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import A from "../../components/atoms/A.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/molecules/Badge.astro";
+const allPosts = await getCollection("blog");
+const tags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+const pageTitle = "Tag Index";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="flex-1">
+    <div class="flex gap-3">
+      {
+        tags.map((tag) => (
+          <Badge url={`/tags/${tag}`} content={tag as string} />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

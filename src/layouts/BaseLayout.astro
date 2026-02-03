@@ -1,0 +1,27 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA:Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body
+    class="dark:bg-gray-950 bg-gray-50 text-gray-950 dark:text-gray-50 min-h-dvh flex flex-col justify-between"
+  >
+    <Header appName="Jurol's Blog" />
+    <slot />
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>

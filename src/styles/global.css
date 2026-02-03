@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+:has(.menu[aria-expanded="true"]) .nav-links {
+  display: unset;
+}

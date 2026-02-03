@@ -1,0 +1,14 @@
+---
+import A from "../atoms/A.astro";
+
+type Props = {
+  url: string;
+  content: string;
+};
+
+const { url, content } = Astro.props;
+---
+
+<div class="bg-blue-600 text-white px-2 rounded-3xl hover:bg-blue-700 transition-all duration-200 ease-in">
+  <A url={url} content={content} />
+</div>

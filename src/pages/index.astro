@@ -1,0 +1,13 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import H1 from "../components/atoms/H1.astro";
+import Greeting from "../components/Greeting";
+---
+
+<BaseLayout>
+  <div class="flex-1">
+    <H1 title="Home page" />
+    <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import A from "./atoms/A.astro";
+type Props = {};
+
+const {} = Astro.props;
+---
+
+<div id="main-menu" class="nav-links hidden m-0 sm:block sm:space-x-4">
+  <A url="/" content="Home" />
+  <A url="/about" content="About" />
+  <A url="/blog" content="Blog" />
+  <A url="/tags" content="Tags" />
+</div>

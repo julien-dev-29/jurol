@@ -1,0 +1,28 @@
+---
+const { frontmatter } = Astro.props;
+import BaseLayout from "./BaseLayout.astro";
+import H1 from "../components/atoms/H1.astro";
+import P from "../components/atoms/P.astro";
+import Badge from "../components/molecules/Badge.astro";
+---
+
+<BaseLayout>
+  <div class="flex-1 bg-linear-to-br from-gray-900 to-slate-900">
+    <div
+      class="container h-fit sm:max-w-10/12 m-auto bg-gray-950 p-8 border border-blue-900 rounded mt-10"
+    >
+      <H1 title={frontmatter.title} />
+      <P content={frontmatter.pubDate.toString().slice(0, 10)} />
+      <div class="flex gap-2">
+        {
+          frontmatter.tags.map((tag: string) => (
+            <Badge url={`/tags/${tag}`} content={tag} />
+          ))
+        }
+      </div>
+      <div class="text-gray-400">
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

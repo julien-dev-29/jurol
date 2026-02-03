@@ -1,0 +1,14 @@
+---
+import A from "./atoms/A.astro";
+import Li from "./atoms/Li.astro";
+type Props = {
+  url: string;
+  title: string;
+};
+
+const { url, title } = Astro.props;
+---
+
+<Li>
+  <A url={url} content={title} />
+</Li>
